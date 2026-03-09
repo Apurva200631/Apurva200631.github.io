@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta charset="UTF-8">
+<title>Tourist Planner - Solapur Tourism</title>
+<link rel="stylesheet" href="style.css">
+
+<style>
+
+.section{
+background:white;
+padding:25px;
+margin:25px;
+border-radius:10px;
+box-shadow:0 5px 15px rgba(0,0,0,0.2);
+}
+
+input,select{
+width:100%;
+padding:10px;
+margin:10px 0;
+border-radius:5px;
+border:1px solid #ccc;
+}
+
+button{
+padding:10px 20px;
+background:#ff4e50;
+color:white;
+border:none;
+border-radius:5px;
+cursor:pointer;
+}
+
+button:hover{
+background:#ff6f61;
+}
+
+.result{
+margin-top:15px;
+font-weight:bold;
+}
+
+</style>
+
+
+<script>
+
+//////////////////////////////
+// FESTIVAL COUNTDOWN
+//////////////////////////////
+
+function updateCountdown(){
+
+let festivalDate = new Date("Jan 14, 2027 00:00:00").getTime();
+let now = new Date().getTime();
+
+let gap = festivalDate - now;
+
+let days = Math.floor(gap / (1000*60*60*24));
+let hours = Math.floor((gap % (1000*60*60*24)) / (1000*60*60));
+let minutes = Math.floor((gap % (1000*60*60)) / (1000*60));
+
+document.getElementById("countdown").innerHTML =
+days + " Days " + hours + " Hours " + minutes + " Minutes";
+
+}
+
+setInterval(updateCountdown,1000);
+
+
+
+//////////////////////////////
+// BUDGET CALCULATOR
+//////////////////////////////
+
+function calculateBudget(){
+
+let days = document.getElementById("days").value;
+let hotel = document.getElementById("hotel").value;
+let food = document.getElementById("food").value;
+let transport = document.getElementById("transport").value;
+
+let total = (days*hotel) + (days*food) + parseInt(transport);
+
+document.getElementById("budgetResult").innerHTML =
+"Estimated Trip Cost: ₹ " + total;
+
+}
+
+
+
+//////////////////////////////
+// TRIP PLANNER
+//////////////////////////////
+
+function generatePlan(){
+
+let days = document.getElementById("tripdays").value;
+
+let plan = "";
+
+if(days == 1){
+
+plan =
+"Day 1: Siddheshwar Temple → Solapur Fort → Local Market → Dinner (Misal Pav)";
+
+}
+
+else if(days == 2){
+
+plan =
+"Day 1: Siddheshwar Temple → Solapur Fort<br><br>" +
+"Day 2: Pandharpur → Tuljapur Temple";
+
+}
+
+else{
+
+plan =
+"Day 1: Siddheshwar Temple → Solapur Fort<br><br>" +
+"Day 2: Pandharpur → Tuljapur<br><br>" +
+"Day 3: Akkalkot → Local Food Tour";
+
+}
+
+document.getElementById("tripResult").innerHTML = plan;
+
+}
+
+</script>
+
+</head>
+
+
+<body>
+
+<nav>
+<a href="index.html">Home</a>
+<a href="places.html">Places</a>
+<a href="culture.html">Culture</a>
+<a href="travel.html">Travel Guide</a>
+<a href="food.html">Food</a>
+<a href="gallery.html">Gallery</a>
+<a href="planner.html">Planner</a>
+<a href="enquiry.html">Enquiry</a>
+</nav>
+
+
+
+<div class="container">
+
+<h2 style="text-align:center;">Smart Tourist Planner</h2>
+
+
+
+<!-- FESTIVAL COUNTDOWN -->
+
+<div class="section">
+
+<h3>Siddheshwar Yatra Countdown</h3>
+
+<p>Next Siddheshwar Yatra Festival in:</p>
+
+<h2 id="countdown"></h2>
+
+</div>
+
+
+
+<!-- BUDGET CALCULATOR -->
+
+<div class="section">
+
+<h3>Tourist Budget Calculator</h3>
+
+<label>Number of Days</label>
+<input type="number" id="days">
+
+<label>Hotel Cost per Day (₹)</label>
+<input type="number" id="hotel">
+
+<label>Food Cost per Day (₹)</label>
+<input type="number" id="food">
+
+<label>Transport Cost (₹)</label>
+<input type="number" id="transport">
+
+<button onclick="calculateBudget()">Calculate Budget</button>
+
+<p class="result" id="budgetResult"></p>
+
+</div>
+
+
+
+<!-- TRIP PLANNER -->
+
+<div class="section">
+
+<h3>Solapur Trip Planner</h3>
+
+<label>Select Number of Days</label>
+
+<select id="tripdays">
+<option value="1">1 Day</option>
+<option value="2">2 Days</option>
+<option value="3">3 Days</option>
+</select>
+
+<button onclick="generatePlan()">Generate Plan</button>
+
+<p class="result" id="tripResult"></p>
+
+</div>
+
+
+
+</div>
+
+<footer>
+Solapur Smart Tourism Planner
+</footer>
+
+</body>
+
+</html>
