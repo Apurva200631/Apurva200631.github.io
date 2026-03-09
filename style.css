@@ -123,3 +123,19 @@ color:white;
 padding:15px;
 margin-top:40px;
 }
+.dark{
+background:black;
+color:white;
+}
+
+.dark nav{
+background:#111;
+}
+
+.dark .container{
+background:#222;
+}
+
+.dark footer{
+background:#111;
+}
