@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<title>Tourist Enquiry</title>
+<link rel="stylesheet" href="style.css">
+
+<script>
+
+function validateForm(){
+
+let name=document.getElementById("name").value;
+let email=document.getElementById("email").value;
+
+if(name=="" || email==""){
+alert("Please fill required fields");
+return false;
+}
+
+alert("Thank you! Your enquiry has been submitted.");
+return true;
+
+}
+
+</script>
+
+</head>
+
+<body>
+
+<nav>
+<a href="index.html">Home</a>
+<a href="places.html">Places</a>
+<a href="culture.html">Culture</a>
+<a href="travel.html">Travel Guide</a>
+<a href="food.html">Food</a>
+<a href="enquiry.html">Enquiry</a>
+</nav>
+
+<div class="container">
+
+<h2>Tourist Enquiry Form</h2>
+
+<form onsubmit="return validateForm()">
+
+<input type="text" id="name" placeholder="Your Name">
+
+<input type="email" id="email" placeholder="Your Email">
+
+<input type="text" placeholder="Country">
+
+<textarea placeholder="Your Message"></textarea>
+
+<button type="submit">Submit</button>
+
+</form>
+
+</div>
+
+<footer>
+Solapur Tourism Enquiry
+</footer>
+
+</body>
+</html>
