@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta charset="UTF-8">
+<title>FAQ - Solapur Tourism</title>
+<link rel="stylesheet" href="style.css">
+
+<style>
+
+.faq{
+background:white;
+padding:20px;
+margin:20px;
+border-radius:10px;
+box-shadow:0 5px 10px rgba(0,0,0,0.2);
+}
+
+.question{
+font-weight:bold;
+cursor:pointer;
+margin-top:10px;
+}
+
+.answer{
+display:none;
+margin-top:5px;
+}
+
+</style>
+
+<script>
+
+function toggleAnswer(id){
+
+let ans = document.getElementById(id);
+
+if(ans.style.display === "block"){
+ans.style.display = "none";
+}
+else{
+ans.style.display = "block";
+}
+
+}
+
+</script>
+
+</head>
+
+<body>
+
+<nav>
+<a href="index.html">Home</a>
+<a href="places.html">Places</a>
+<a href="culture.html">Culture</a>
+<a href="travel.html">Travel Guide</a>
+<a href="food.html">Food</a>
+<a href="gallery.html">Gallery</a>
+<a href="planner.html">Planner</a>
+<a href="faq.html">FAQ</a>
+<a href="enquiry.html">Enquiry</a>
+
+<button onclick="darkMode()">🌙</button>
+</nav>
+
+
+<div class="container">
+
+<h2>Frequently Asked Questions</h2>
+
+
+<div class="faq">
+
+<p class="question" onclick="toggleAnswer('a1')">
+What is the best time to visit Solapur?
+</p>
+
+<p class="answer" id="a1">
+October to February is the best time because the weather is pleasant.
+</p>
+
+</div>
+
+
+<div class="faq">
+
+<p class="question" onclick="toggleAnswer('a2')">
+Which temple is most famous in Solapur?
+</p>
+
+<p class="answer" id="a2">
+Siddheshwar Temple is one of the most famous temples in Solapur.
+</p>
+
+</div>
+
+
+<div class="faq">
+
+<p class="question" onclick="toggleAnswer('a3')">
+How far is Pandharpur from Solapur?
+</p>
+
+<p class="answer" id="a3">
+Pandharpur is about 70 km from Solapur.
+</p>
+
+</div>
+
+
+<div class="faq">
+
+<p class="question" onclick="toggleAnswer('a4')">
+What food is famous in Solapur?
+</p>
+
+<p class="answer" id="a4">
+Jowar Bhakri, Misal Pav, Shenga Chutney, and Puran Poli are popular foods.
+</p>
+
+</div>
+
+
+</div>
+
+<footer>
+Solapur Tourism FAQ
+</footer>
+
+<script>
+
+function darkMode(){
+document.body.classList.toggle("dark");
+}
+
+</script>
+
+</body>
+</html>
