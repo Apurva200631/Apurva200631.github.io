@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta charset="UTF-8">
+<title>Solapur Tourism Statistics</title>
+<link rel="stylesheet" href="style.css">
+
+<style>
+
+.stats{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+gap:20px;
+margin-top:40px;
+}
+
+.stat-box{
+background:white;
+padding:30px;
+border-radius:10px;
+text-align:center;
+box-shadow:0 5px 15px rgba(0,0,0,0.2);
+}
+
+.number{
+font-size:40px;
+color:#ff4e50;
+font-weight:bold;
+}
+
+</style>
+
+<script>
+
+function animateValue(id, start, end, duration){
+
+let obj = document.getElementById(id);
+let range = end - start;
+let current = start;
+let increment = end > start ? 1 : -1;
+let stepTime = Math.abs(Math.floor(duration / range));
+
+let timer = setInterval(function(){
+
+current += increment;
+obj.innerHTML = current;
+
+if(current == end){
+clearInterval(timer);
+}
+
+}, stepTime);
+
+}
+
+window.onload = function(){
+
+animateValue("visitors",0,2000000,2000);
+animateValue("temples",0,25,2000);
+animateValue("festivals",0,15,2000);
+animateValue("foods",0,20,2000);
+
+}
+
+</script>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h2 style="text-align:center;">Solapur Tourism Statistics</h2>
+
+<p style="text-align:center;">
+Some interesting numbers about tourism and culture in Solapur.
+</p>
+
+<div class="stats">
+
+<div class="stat-box">
+<p class="number" id="visitors">0</p>
+<p>Annual Visitors</p>
+</div>
+
+<div class="stat-box">
+<p class="number" id="temples">0</p>
+<p>Famous Temples Nearby</p>
+</div>
+
+<div class="stat-box">
+<p class="number" id="festivals">0</p>
+<p>Major Festivals</p>
+</div>
+
+<div class="stat-box">
+<p class="number" id="foods">0</p>
+<p>Popular Local Dishes</p>
+</div>
+
+</div>
+
+</div>
+
+<footer>
+Solapur Tourism Statistics
+</footer>
+
+</body>
+
+</html>
